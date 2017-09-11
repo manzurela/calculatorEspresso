@@ -79,4 +79,40 @@ public class CalcTest {
         onView(withId(R.id.outputLabel)).check(matches(withText("4")));
     }
 
+    @Test
+    public void perCentage(){
+        onView(withId(R.id.oneButton)).perform(click());
+        onView(withId(R.id.zeroButton)).perform(click());
+        onView(withId(R.id.percentButton)).perform(click());
+        //Result is 0.1
+        onView(withId(R.id.outputLabel)).check(matches(withText("0.1")));
+
+    }
+    @Test
+    public void positiveNegative(){
+        onView(withId(R.id.sevenButton)).perform(click());
+        onView(withId(R.id.plusMinButton)).perform(click());
+        //Result is -7
+        onView(withId(R.id.outputLabel)).check(matches(withText("-7")));
+
+        onView(withId(R.id.plusMinButton)).perform(click());
+        //Result is 7
+        onView(withId(R.id.outputLabel)).check(matches(withText("7")));
+
+    }
+
+    @Test
+    public void clearScreen(){
+        onView(withId(R.id.nineButton)).perform(click());
+        onView(withId(R.id.sixButton)).perform(click());
+        onView(withId(R.id.dotButtton)).perform(click());
+        onView(withId(R.id.fiveButton)).perform(click());
+        onView(withId(R.id.threeButton)).perform(click());
+        onView(withId(R.id.clearButton)).perform(click());
+        //Result is 0 (clear screen)
+        onView(withId(R.id.outputLabel)).check(matches(withText("0")));
+
+    }
+
+
 }
